@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Guia do Gestor · Espaço que produz resultado | Silvanio Gois</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cor-principal: rgb(39, 98, 141);
+            --cor-destaque: #1f5a7e;
+            --cor-fundo-claro: #f4f9fe;
+            --cinza-texto: #2c3e44;
+            --borda-leve: #e2edf5;
+            --sombra-leve: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05);
+            --transicao-padrao: all 0.25s ease-in-out;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--cor-fundo-claro);
+            color: var(--cinza-texto);
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* cabeçalho */
+        .card-header {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: var(--sombra-leve);
+            border-bottom: 4px solid var(--cor-principal);
+            transition: var(--transicao-padrao);
+        }
+        .card-header:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        .info-gestor {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .foto-redonda {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--cor-principal);
+            background: #fff;
+            transition: var(--transicao-padrao);
+        }
+        .foto-redonda:hover {
+            transform: scale(1.02);
+            border-color: var(--cor-destaque);
+        }
+        .nome-funcao h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a2f3c;
+        }
+        .btn-whats {
+            background: #eef2f7;
+            padding: 0.7rem 1.4rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #075e54;
+            transition: var(--transicao-padrao);
+            border: 1px solid var(--borda-leve);
+            font-size: 0.95rem;
+        }
+        .btn-whats:hover {
+            background: #e3edf5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-color: var(--cor-principal);
+        }
+
+        .hero-guia {
+            background: linear-gradient(105deg, white, #f5faff);
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            border-left: 8px solid var(--cor-principal);
+            box-shadow: var(--sombra-leve);
+        }
+
+        .nav-gestor {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            background: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            margin-bottom: 2rem;
+            justify-content: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        .nav-gestor a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--cor-principal);
+            padding: 0.5rem 0.8rem;
+            border-radius: 40px;
+            transition: var(--transicao-padrao);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .nav-gestor a:hover {
+            background: var(--cor-principal);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .bloco-guia {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--sombra-leve);
+            border: 1px solid var(--borda-leve);
+            transition: var(--transicao-padrao);
+        }
+        .bloco-guia:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+        .bloco-guia h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1f3e4c;
+            border-left: 5px solid var(--cor-principal);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .insight-pratico {
+            background: #eef3fc;
+            border-left: 4px solid var(--cor-principal);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1.2rem 0;
+            font-weight: 500;
+        }
+        .lista-acao {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .lista-acao li {
+            margin-bottom: 0.5rem;
+        }
+        .tabela-metrica {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .tabela-metrica th, .tabela-metrica td {
+            border: 1px solid var(--borda-leve);
+            padding: 0.7rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .tabela-metrica th {
+            background: #eef3fa;
+            color: var(--cor-principal);
+        }
+        .checklist-final {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .checklist-final td {
+            padding: 0.8rem 0.2rem;
+            border-bottom: 1px solid #e2e9ef;
+        }
+        .marcador-icone {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            color: var(--cor-principal);
+            font-size: 1rem;
+            margin-right: 12px;
+        }
+
+        /* Botão flutuante */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background: rgba(39, 98, 141, 0.8);
+            backdrop-filter: blur(4px);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.25s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+        .back-to-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top-btn:hover {
+            background: rgb(39, 98, 141);
+            transform: translateY(-4px);
+        }
+
+        /* Rodapé */
+        .rodape {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.5rem 0.5rem;
+            border-top: 1px solid #d0dfea;
+            font-size: 0.85rem;
+            color: #4b6e82;
+        }
+        .rodape-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+        .rodape-links a {
+            color: var(--cor-principal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicao-padrao);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .rodape-links a:hover {
+            color: var(--cor-destaque);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .back-to-top-btn { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="inicio"></div>
+
+<div class="card-header">
+    <div class="info-gestor">
+        <img class="foto-redonda" src="Gestão_SG.png" alt="Silvanio Gois - Gestor">
+        <div class="nome-funcao">
+            <h2>Silvanio Gois</h2>
+            <p><i class="fas fa-chart-line"></i> Liderança em Gestão de Espaços, Processos e Performance</p>
+            <span style="font-size:0.7rem; background:var(--cor-principal); color:white; padding:0.2rem 0.7rem; border-radius:20px;"><i class="fas fa-check-circle"></i> Guia prático para gestores</span>
+        </div>
+    </div>
+    <div>
+        <a class="btn-whats" href="https://wa.me/5513988301094?text=Olá%20Silvanio,%20li%20o%20guia%20e%20quero%20compartilhar%20minha%20experiência" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Contato
+        </a>
+    </div>
+</div>
+
+<div class="hero-guia">
+    <h1><i class="fas fa-building"></i> GUIA DO GESTOR · ESPAÇO QUE PRODUZ RESULTADO</h1>
+    <p><i class="fas fa-lightbulb"></i> Como unir edificações, administração e processos gerenciais para reduzir desperdício, aumentar produtividade e proteger a margem. Direto ao ponto.</p>
+</div>
+
+<div class="nav-gestor">
+    <a href="#diagnostico"><i class="fas fa-search"></i> Diagnóstico 360°</a>
+    <a href="#fluxo-lean"><i class="fas fa-route"></i> Fluxo & Layout</a>
+    <a href="#manutencao"><i class="fas fa-tools"></i> Gestão de Ativos</a>
+    <a href="#eficiencia"><i class="fas fa-charging-station"></i> Eficiência</a>
+    <a href="#pessoas-ergo"><i class="fas fa-users"></i> Pessoas & Ambiente</a>
+    <a href="#plano-acao"><i class="fas fa-calendar-alt"></i> Plano 90 dias</a>
+    <a href="#checklist-lider"><i class="fas fa-clipboard-list"></i> Checklist Final</a>
+</div>
+
+<!-- SEÇÃO 1 -->
+<div id="diagnostico" class="bloco-guia">
+    <h2><i class="fas fa-chart-simple"></i> 1. Diagnóstico 360° – onde o espaço está comendo seu lucro</h2>
+    <p>Antes de qualquer obra, faça uma varredura com seu time. Em 2 dias você identifica os maiores vilões da produtividade.</p>
+    <div class="insight-pratico">
+        <i class="fas fa-clipboard"></i> <strong>Roteiro de diagnóstico (aplique amanhã):</strong><br>
+        ✔ Caminhe por todas as áreas em horários de pico – observe filas, cruzamentos, barulho.<br>
+        ✔ Pergunte a 3 colaboradores: “O que no ambiente físico atrasa seu trabalho?”.<br>
+        ✔ Analise contas de energia, água e manutenção dos últimos 6 meses.<br>
+        ✔ Verifique se a equipe de manutenção trabalha no modo "apaga incêndio" ou preventivo.
+    </div>
+    <p>Resultado: lista de <strong>3 a 5 intervenções de alto impacto</strong> que não exigem grandes investimentos.</p>
+</div>
+
+<!-- SEÇÃO 2 -->
+<div id="fluxo-lean" class="bloco-guia">
+    <h2><i class="fas fa-arrows-spin"></i> 2. Fluxo operacional e layout: reduza deslocamento, aumente entrega</h2>
+    <p>Diagrama de Espaguete mostra o caminho real de pessoas e materiais. Se parece um novelo, seu lucro está se perdendo.</p>
+    <h3>Três ações táticas:</h3>
+    <ul class="lista-acao">
+        <li><i class="fas fa-arrow-right"></i> <strong>Proximidade funcional</strong> – setores que mais trocam informações próximos.</li>
+        <li><i class="fas fa-arrow-right"></i> <strong>Eliminar pontos de espera</strong> – corredor desobstruído, elevador de carga.</li>
+        <li><i class="fas fa-arrow-right"></i> <strong>Zoneamento visual</strong> – sinalização e pisos pintados.</li>
+    </ul>
+    <div class="insight-pratico">
+        <i class="fas fa-walking"></i> <strong>Gemba walk semanal:</strong> 20 minutos caminhando com a operação. Identifique gargalos na hora.
+    </div>
+</div>
+
+<!-- SEÇÃO 3 -->
+<div id="manutencao" class="bloco-guia">
+    <h2><i class="fas fa-gear"></i> 3. Ativos físicos: manutenção preventiva = previsibilidade financeira</h2>
+    <p>Evite o modo “quebra, conserta”. Institua um plano de manutenção com indicadores.</p>
+    <ul class="lista-acao">
+        <li><i class="fas fa-chart-simple"></i> <strong>MTBF</strong> (tempo médio entre falhas) – quanto maior, melhor.</li>
+        <li><i class="fas fa-coins"></i> <strong>Custo de manutenção por m² / colaborador</strong>.</li>
+        <li><i class="fas fa-clock"></i> <strong>Ordem de serviço emergencial vs. planejada</strong> (>70% planejada).</li>
+    </ul>
+    <table class="tabela-metrica">
+        <thead><tr><th>Sistema</th><th>Ação preventiva</th><th>Frequência</th></tr></thead>
+        <tbody>
+            <tr><td>Elétrica</td><td>Termografia, aperto de bornes</td><td>Anual + mensal visual</td></tr>
+            <tr><td>Climatização</td><td>Limpeza de filtros, carga de gás</td><td>Trimestral</td></tr>
+            <tr><td>Hidráulica</td><td>Medição de vazão, teste de estanqueidade</td><td>Semestral</td></tr>
+            <tr><td>Cobertura/fachada</td><td>Inspeção de infiltrações</td><td>Após chuvas fortes</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- SEÇÃO 4 -->
+<div id="eficiencia" class="bloco-guia">
+    <h2><i class="fas fa-solar-panel"></i> 4. Eficiência de recursos: reduza contas fixas com visão executiva</h2>
+    <p>Reduzir consumo é aumentar margem líquida. Economia de 15% a 25% em luz e água em 6 meses é factível.</p>
+    <ul class="lista-acao">
+        <li><i class="fas fa-lightbulb"></i> LED com sensor de presença – payback 8–12 meses.</li>
+        <li><i class="fas fa-droplet"></i> Reaproveitamento de água da chuva para descargas.</li>
+        <li><i class="fas fa-palette"></i> Envoltória térmica: pintura clara + películas solares.</li>
+    </ul>
+    <div class="insight-pratico">
+        <i class="fas fa-chart-line"></i> <strong>KPI essencial:</strong> “Custo de utilidade por colaborador” e “kWh por m²”. Meta anual: redução de 5%.
+    </div>
+</div>
+
+<!-- SEÇÃO 5 -->
+<div id="pessoas-ergo" class="bloco-guia">
+    <h2><i class="fas fa-hand-peace"></i> 5. Ambiente físico e produtividade: equipe feliz entrega mais</h2>
+    <p>Escritórios barulhentos geram turnover 30% maior. Ergonomia e conforto são investimento estratégico.</p>
+    <ul class="lista-acao">
+        <li><i class="fas fa-couch"></i> <strong>Ergonomia (NR-17):</strong> cadeiras ajustáveis, apoio para punho.</li>
+        <li><i class="fas fa-temperature-low"></i> <strong>Temperatura ideal:</strong> 21°C a 24°C, CO₂ abaixo de 1000 ppm.</li>
+        <li><i class="fas fa-volume-off"></i> <strong>Controle de ruído:</strong> revestimento acústico.</li>
+        <li><i class="fas fa-leaf"></i> <strong>Biofilia:</strong> plantas, luz natural, áreas de descompressão.</li>
+    </ul>
+    <div class="insight-pratico">
+        <i class="fas fa-poll"></i> Pesquisa rápida de 5 perguntas sobre conforto e barulho. Aja em até 48h.
+    </div>
+</div>
+
+<!-- SEÇÃO 6 - PLANO 90 DIAS COM ALERTA SOBRE RESISTÊNCIA (RECOMENDAÇÃO 1) -->
+<div id="plano-acao" class="bloco-guia">
+    <h2><i class="fas fa-calendar-week"></i> 6. Roteiro de implementação para os próximos 90 dias</h2>
+    <table class="tabela-metrica">
+        <thead><tr><th>Fase</th><th>Ações prioritárias</th><th>Responsável</th></tr></thead>
+        <tbody>
+            <tr><td><i class="fas fa-hourglass-start"></i> Dias 1–30</td><td>Diagnóstico participativo + ajustes de baixo custo (móveis, lâmpadas)</td><td>Gestor de facilities + você</td></tr>
+            <tr><td><i class="fas fa-chart-line"></i> Dias 31–60</td><td>Manutenção preventiva de ativos críticos, KPIs de consumo</td><td>Líder de operações</td></tr>
+            <tr><td><i class="fas fa-flag-checkered"></i> Dias 61–90</td><td>Revisão de layout, gemba walks, apresentação de resultados</td><td>Comitê gestor (você lidera)</td></tr>
+        </tbody>
+    </table>
+    <div class="insight-pratico">
+        <i class="fas fa-exclamation-triangle"></i> <strong>Atenção à resistência interna:</strong> Mudanças de layout e manutenção preventiva podem esbarrar em “sempre fizemos assim”. Use dados do diagnóstico, envolva os líderes de área nas decisões e celebre pequenas vitórias nas primeiras semanas. A inércia é normal, mas com métricas visíveis ela se desfaz.
+    </div>
+</div>
+
+<!-- SEÇÃO 7 - CHECKLIST -->
+<div id="checklist-lider" class="bloco-guia">
+    <h2><i class="fas fa-check-double"></i> Checklist do gestor – verifique todo mês</h2>
+    <table class="checklist-final">
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> O layout atual permite fluxo ágil sem cruzamentos excessivos?</td></tr>
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> As manutenções críticas estão documentadas e o plano preventivo é seguido?</td></tr>
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> Monitoramos indicadores de consumo (energia/água) e comparamos com metas?</td></tr>
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> A equipe relatou pelo menos um ponto de melhoria no ambiente físico neste mês?</td></tr>
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> Realizamos ao menos uma caminhada gestora (gemba walk)?</td></tr>
+        <tr><td><span class="marcador-icone"><i class="far fa-square"></i></span> Custos com reparos emergenciais reduziram em relação ao trimestre anterior?</td></tr>
+    </table>
+    <div class="insight-pratico">
+        <i class="fas fa-exclamation-triangle"></i> Se respondeu “não” a 2 ou mais itens, agende uma reunião de alinhamento ainda esta semana.
+    </div>
+</div>
+
+<!-- RESUMO EXECUTIVO + CONVITE PARA COMPARTILHAR RESULTADOS (RECOMENDAÇÃO 2) -->
+<div class="bloco-guia" style="background: #ffffffd9;">
+    <h2><i class="fas fa-rocket"></i> Resumo para a sua mesa</h2>
+    <p>Gestor, 80% das oportunidades com infraestrutura estão em <strong>organização, manutenção planejada e escuta ativa do time</strong>. Comece pelo diagnóstico, envolva sua liderança e siga o cronograma de 90 dias. Você verá redução de desperdícios, moral da equipe elevada e mais previsibilidade financeira.</p>
+    <div style="margin-top: 1rem; border-top: 2px dotted var(--borda-leve); padding-top: 1rem;">
+        <i class="fas fa-share-alt"></i> <strong>Compartilhe sua experiência:</strong> Assim como este guia foi construído com vivência real, convido você a me contar seus resultados, dúvidas ou adaptações que fizeram a diferença na sua empresa. <strong>Da estratégia à operação, conectando, processos, pessoas e resultados.</strong> – sua visão enriquece a comunidade de gestores.
+    </div>
+</div>
+
+<!-- RODAPÉ -->
+<div class="rodape">
+    <div class="rodape-links">
+        <span><i class="far fa-copyright"></i> 2026 Silvanio Gois - Todos os direitos reservados</span>
+        <a href="https://www.silvaniogois.com.br/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> ir ao Site (silvaniogois.com.br)</a>
+    </div>
+    <div><i class="fas fa-hard-hat"></i> Guia honesto para gestores – baseado na prática, livre de jargões de consultoria.</div>
+    <div style="margin-top:0.5rem;"><i class="fas fa-comments"></i> Quer dividir sua jornada? Fale comigo no WhatsApp. Sua experiência também vira aprendizado.</div>
+</div>
+
+<!-- BOTÃO FLUTUANTE VOLTAR AO TOPO -->
+<a href="#" id="backToTopBtn" class="back-to-top-btn"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+    (function() {
+        const btn = document.getElementById('backToTopBtn');
+        if (!btn) return;
+        function toggle() {
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        }
+        window.addEventListener('scroll', toggle);
+        toggle();
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>
+</body>
+</html>
